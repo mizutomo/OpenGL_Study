@@ -11,38 +11,34 @@ void resize(int w, int h)
 {
   glViewport(0, 0, w, h);
   glLoadIdentity();
+  glOrtho(-0.5, (GLdouble)w - 0.5, (GLdouble)h - 0.5, -0.5, -1.0, 1.0);
 }
 
 void mouse(int button, int state, int x, int y)
 {
+  static int x0, y0;
+
   switch(button) {
     case GLUT_LEFT_BUTTON:
-      printf("left");
+      if (state == GLUT_UP) {
+        glColor3d(0.0, 0.0, 0.0);
+        glBegin(GL_LINES);
+        glVertex2i(x0, y0);
+        glVertex2i(x, y);
+        glEnd();
+        glFlush();
+      } else {
+        x0 = x;
+        y0 = y;
+      }
       break;
     case GLUT_MIDDLE_BUTTON:
-      printf("middle");
       break;
     case GLUT_RIGHT_BUTTON:
-      printf("right");
       break;
     default:
       break;
   }
-
-  printf(" button is ");
-
-  switch(state) {
-    case GLUT_UP:
-      printf("up");
-      break;
-    case GLUT_DOWN:
-      printf("down");
-      break;
-    default:
-      break;
-  }
-
-  printf(" at (%d, %d)\n", x, y);
 }
 
 void init()
