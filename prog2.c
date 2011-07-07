@@ -48,7 +48,7 @@ void resize(int w, int h)
 
   glLoadIdentity();
   gluPerspective(30.0, (double)w / (double)h, 1.0 , 100);
-  glTranslated(0.0, 0.0, -5.0);
+  gluLookAt(3.0, 4.0, 5.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
 }
 
 void init()

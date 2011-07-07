@@ -9,7 +9,7 @@ all: $(OBJS)
 prog1: prog1.c
 	$(CC) $(CFLAGS) prog1.c -o prog1 $(LDLIBS)
 prog2: prog2.c
-	$(CC) $(CFLAGS) prog1.c -o prog1 $(LDLIBS)
+	$(CC) $(CFLAGS) prog2.c -o prog2 $(LDLIBS)
 
 clean:
 	-rm $(OBJS)
