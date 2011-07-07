@@ -4,7 +4,7 @@ void display()
 {
   glClear(GL_COLOR_BUFFER_BIT);
   glColor3d(1.0, 0.0, 0.0);
-  glBegin(GL_LINE_LOOP);
+  glBegin(GL_POLYGON);
   glVertex2d(-0.9, -0.9);
   glVertex2d(0.9, -0.9);
   glVertex2d(0.9, 0.9);
@@ -15,7 +15,7 @@ void display()
 
 void init()
 {
-  glClearColor(0.0, 0.0, 1.0, 1.0);
+  glClearColor(1.0, 1.0, 1.0, 1.0);
 }
 
 int main(int argc, char** argv)
