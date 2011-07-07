@@ -16,6 +16,13 @@ void display()
   glFlush();
 }
 
+void resize(int w, int h)
+{
+  glViewport(0, 0, w, h);
+  glLoadIdentity();
+  glOrtho(-w / 200.0, w / 200.0, -h / 200.0, h / 200.0, -1.0, 1.0);
+}
+
 void init()
 {
   glClearColor(1.0, 1.0, 1.0, 1.0);
@@ -27,6 +34,7 @@ int main(int argc, char** argv)
   glutInitDisplayMode(GLUT_RGBA);
   glutCreateWindow(argv[0]);
   glutDisplayFunc(display);
+  glutReshapeFunc(resize);
   init();
   glutMainLoop();
   return 0;
