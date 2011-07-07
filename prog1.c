@@ -1,18 +1,9 @@
+#include <stdio.h>
 #include <GL/glut.h>
 
 void display()
 {
   glClear(GL_COLOR_BUFFER_BIT);
-  glBegin(GL_POLYGON);
-  glColor3d(1.0, 0.0, 0.0);  // Red
-  glVertex2d(-0.9, -0.9);
-  glColor3d(0.0, 1.0, 0.0);  // Green
-  glVertex2d(0.9, -0.9);
-  glColor3d(0.0, 0.0, 1.0);  // Blue
-  glVertex2d(0.9, 0.9);
-  glColor3d(1.0, 1.0, 0.0);  // Yellow
-  glVertex2d(-0.9, 0.9);
-  glEnd();
   glFlush();
 }
 
@@ -20,7 +11,38 @@ void resize(int w, int h)
 {
   glViewport(0, 0, w, h);
   glLoadIdentity();
-  glOrtho(-w / 200.0, w / 200.0, -h / 200.0, h / 200.0, -1.0, 1.0);
+}
+
+void mouse(int button, int state, int x, int y)
+{
+  switch(button) {
+    case GLUT_LEFT_BUTTON:
+      printf("left");
+      break;
+    case GLUT_MIDDLE_BUTTON:
+      printf("middle");
+      break;
+    case GLUT_RIGHT_BUTTON:
+      printf("right");
+      break;
+    default:
+      break;
+  }
+
+  printf(" button is ");
+
+  switch(state) {
+    case GLUT_UP:
+      printf("up");
+      break;
+    case GLUT_DOWN:
+      printf("down");
+      break;
+    default:
+      break;
+  }
+
+  printf(" at (%d, %d)\n", x, y);
 }
 
 void init()
@@ -37,6 +59,7 @@ int main(int argc, char** argv)
   glutCreateWindow(argv[0]);
   glutDisplayFunc(display);
   glutReshapeFunc(resize);
+  glutMouseFunc(mouse);
   init();
   glutMainLoop();
   return 0;
