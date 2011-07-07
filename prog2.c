@@ -3,6 +3,7 @@
 void display()
 {
   glClear(GL_COLOR_BUFFER_BIT);
+  glRotated(25.0, 0.0, 1.0, 0.0);
   glBegin(GL_POLYGON);
   glColor3d(1.0, 0.0, 0.0);  // Red
   glVertex2d(-0.9, -0.9);
