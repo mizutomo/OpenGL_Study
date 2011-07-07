@@ -3,6 +3,7 @@
 void display()
 {
   glClear(GL_COLOR_BUFFER_BIT);
+  glColor3d(1.0, 0.0, 0.0);
   glBegin(GL_LINE_LOOP);
   glVertex2d(-0.9, -0.9);
   glVertex2d(0.9, -0.9);
